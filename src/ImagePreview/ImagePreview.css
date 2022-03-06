@@ -1,0 +1,7 @@
+.image-container {
+    border: 1px solid lime;
+    width: 500px;
+    height: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
