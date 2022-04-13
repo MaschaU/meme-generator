@@ -32,14 +32,22 @@ const CameraPreview = () => {
   const handleClear = (event) => {
     setFile(null);
   }
+  const processSnap = (event) => {
+
+  }
   return (
     <div>
       <input type="file" onChange={handleUpload}/>
-      <button type="button" onClick={capture}>Upload</button>
       <button type="button" onClick={handleClear}>Clear</button>
-
       
+    {file
+      ? 
+      <>
       <img src={file} alt="memeToBe"/>
+      <button type="button" onClick={processSnap}>That's it</button>
+      </>
+      :
+      <> 
       <Webcam
         audio={false}
         height={720}
@@ -48,6 +56,9 @@ const CameraPreview = () => {
         width={1280}
         videoConstraints={videoConstraints}
       />
+      <button type="button" onClick={capture}>Snap</button>
+      </>
+    }
     </div>
   )
 }

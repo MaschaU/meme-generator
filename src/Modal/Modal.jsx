@@ -1,4 +1,5 @@
 import React from "react";
+import CameraPreview from "../CameraPreview/CameraPreview";
 
 const Modal = (props) => {
     if(!props.show) {
@@ -10,9 +11,10 @@ const Modal = (props) => {
                 <div className="header">
                     <h4 className="modal-title">Witty title</h4>
                 </div>
-                <div className="modal-body"></div>
+                <div className="modal-body">
+                    <CameraPreview/>
+                </div>
                 <div className="modal-footer">
-                    <button>Take a pic</button>
                     <button>Clear screen</button>
                 </div>
             </div>
