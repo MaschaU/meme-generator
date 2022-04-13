@@ -1,4 +1,4 @@
-import './ImagePreview.css';
+import './CameraPreview.css';
 import React, { useState, useRef, useCallback } from 'react';// import ReactFileReader from 'react-file-reader';
 import Webcam from "react-webcam";
 
@@ -8,15 +8,19 @@ const videoConstraints = {
   facingMode: "user"
 };
 
-const ImagePreview = () => {
-  // useState always returns an array with value and setter
+
+
+const CameraPreview = () => {
+  // useState always returns an array with value and a setter
   // setter- a fn that allows us to set the state value
   const [file, setFile] = useState(null);
   const handleUpload = (event) => {
     setFile(URL.createObjectURL(event.target.files[0]))
   }
-  const webcamRef = useRef(null);
 
+  const webcamRef = useRef(null);
+  
+  
   const capture = useCallback(
     () => {
       const imageSrc = webcamRef.current.getScreenshot();
@@ -33,8 +37,9 @@ const ImagePreview = () => {
       <input type="file" onChange={handleUpload}/>
       <button type="button" onClick={capture}>Upload</button>
       <button type="button" onClick={handleClear}>Clear</button>
+
       
-      <img src={file}/>
+      <img src={file} alt="memeToBe"/>
       <Webcam
         audio={false}
         height={720}
@@ -48,7 +53,7 @@ const ImagePreview = () => {
 }
 
 // LEAVING FOR REFERENCE (NOT TO DO)
-// class ImagePreview extends React.Component {
+// class CameraPreview extends React.Component {
 //     constructor(props){
 //       super(props)
 //       this.state = {
@@ -77,4 +82,4 @@ const ImagePreview = () => {
 //       );
 //     }
 //   }
-export default ImagePreview;
+export default CameraPreview;
