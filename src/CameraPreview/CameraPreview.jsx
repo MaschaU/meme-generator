@@ -1,6 +1,7 @@
 import './CameraPreview.css';
 import React, { useState, useRef, useCallback } from 'react';// import ReactFileReader from 'react-file-reader';
 import Webcam from "react-webcam";
+import PropTypes from 'prop-types';
 
 const videoConstraints = {
   width: 1280,
@@ -8,9 +9,7 @@ const videoConstraints = {
   facingMode: "user"
 };
 
-
-
-const CameraPreview = () => {
+const CameraPreview = (props) => {
   // useState always returns an array with value and a setter
   // setter- a fn that allows us to set the state value
   const [file, setFile] = useState(null);
@@ -33,13 +32,14 @@ const CameraPreview = () => {
     setFile(null);
   }
   const processSnap = (event) => {
-
+    props.onImageSelect(file);
+    
   }
   return (
     <div>
       <input type="file" onChange={handleUpload}/>
       <button type="button" onClick={handleClear}>Clear</button>
-      
+
     {file
       ? 
       <>
@@ -62,6 +62,9 @@ const CameraPreview = () => {
     </div>
   )
 }
+
+CameraPreview.propTypes = {
+  onImageSelect: PropTypes.func.isRequired    }
 
 // LEAVING FOR REFERENCE (NOT TO DO)
 // class CameraPreview extends React.Component {

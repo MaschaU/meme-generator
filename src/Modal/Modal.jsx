@@ -2,6 +2,7 @@ import React from "react";
 import CameraPreview from "../CameraPreview/CameraPreview";
 
 const Modal = (props) => {
+
     if(!props.show) {
         return null;
     }
@@ -12,7 +13,7 @@ const Modal = (props) => {
                     <h4 className="modal-title">Witty title</h4>
                 </div>
                 <div className="modal-body">
-                    <CameraPreview/>
+                    <CameraPreview onImageSelect = { props.onImageSelect }/>
                 </div>
                 <div className="modal-footer">
                     <button>Clear screen</button>
