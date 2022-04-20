@@ -4,11 +4,12 @@ import Header from './Header/Header';
 import Landing from './Landing/Landing';
 import Modal from './Modal/Modal';
 import Editor from "./Editor/Editor";
+import CameraPreview from "./CameraPreview/CameraPreview";
 
 
 function App() {
-  const [ show, setShow ] = useState(false);
-  const [ image, setImage ] = useState(false);
+  const [show, setShow] = useState(false);
+  const [image, setImage] = useState(false);
   return (
     <div className="App">
       <Header/>
@@ -18,8 +19,10 @@ function App() {
         <Editor image={image}/>
         :
         <>
-        <Landing onOpenModal = { () => {setShow(true)}}/>
-        <Modal show={ show } onImageSelect = { setImage }/>
+        <Landing  onImageSelect = {setImage} onOpenModal={ () => {setShow(true)}}/>
+        <Modal show={show} >
+          <CameraPreview onImageSelect = {setImage}/>
+        </Modal>
         </>
         }
       </div>

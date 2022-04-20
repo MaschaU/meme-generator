@@ -4,9 +4,9 @@ import React, { useState } from 'react';
 const Landing = (props) => {
     // useState always returns an array with value and a setter
     // setter- a fn that allows us to set the state value
-    const [file, setFile] = useState(null);
+    // const [file, setFile] = useState(null);
     const handleUpload = (event) => {
-      setFile(URL.createObjectURL(event.target.files[0]))
+      props.onImageSelect(URL.createObjectURL(event.target.files[0]))
     }
   
     
