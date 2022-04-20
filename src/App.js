@@ -5,7 +5,6 @@ import Landing from './Landing/Landing';
 import Modal from './Modal/Modal';
 import Editor from "./Editor/Editor";
 import CameraPreview from "./CameraPreview/CameraPreview";
-import Canvas from "./Canvas/Canvas";
 
 
 
@@ -17,7 +16,6 @@ function App() {
     <div className="App">
       <Header/>
       <div className="main-container">
-        <Canvas/>
         { image 
         ?
         <Editor image={image}/>
