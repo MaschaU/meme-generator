@@ -1,19 +1,22 @@
 import React, {useState} from "react";
-import CameraPreview from "../CameraPreview/CameraPreview";
-import Landing from "../Landing/Landing";
 import Canvas from "../Canvas/Canvas";
 
 
 const Editor = (props) => {
     const [topText, setTopText] = useState('');
     const [bottomText, setBottomText] = useState('');
+    const [canvasElement, setCanvasElement] = useState(null);
+   
 
     return(
         <div>
             <input type="text" name="topText" placeholder="Top text" onChange={(event) => {setTopText(event.target.value)}}/>
             <input type="text" name="bottomText" placeholder="Bottom text" onChange={(event) => {setBottomText(event.target.value)}}/>
-            <Canvas image={props.image} topText={topText} bottomText={bottomText}/>
-            
+            <Canvas image={props.image} topText={topText} bottomText={bottomText} onCanvasUpdate={setCanvasElement}/>
+            {canvasElement ? 
+            <a href={canvasElement.toDataURL()} download="meme.jpg">Download!</a> :
+            null
+            }
 
         </div>
     )

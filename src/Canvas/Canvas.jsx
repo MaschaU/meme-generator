@@ -1,7 +1,5 @@
 import React, {useRef, useEffect} from 'react'
 
-
-
 const Canvas = props => {
     const canvasRef = useRef(null);
     useEffect(()=>{
@@ -34,11 +32,13 @@ const Canvas = props => {
             context.textBaseline = 'bottom';
             context.strokeText(bottomText, canvas.width / 2, canvas.height);
             context.fillText(bottomText, canvas.width / 2, canvas.height);
+
+            props.onCanvasUpdate(canvas);
         }
 
         image.src = props.image;
     
-    }, [props.image, props.topText, props.bottomText]);
+    }, [props.image, props.topText, props.bottomText, props.onCanvasUpdate, props]);
     
     return(
         <canvas ref={canvasRef}/>
