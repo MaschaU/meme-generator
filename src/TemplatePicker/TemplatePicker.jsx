@@ -1,11 +1,22 @@
+import propTypes from "prop-types";
 import React from "react";
+import images from "./images";
 
-const TemplatePicker = () => {
+const TemplatePicker = (props) => {
 
 
 
     return(
-        <div>Something</div>
+        <>
+        {images.map((image) => {
+            return(
+                <button key={image} onClick={() => props.onImageSelect(`/memes/${image}`)}>
+                <img src={`/memes/${image}`} alt={image} />
+                </button>
+            )
+        })}
+        </>
+        
     )
 }
 

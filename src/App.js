@@ -8,9 +8,6 @@ import CameraPreview from "./CameraPreview/CameraPreview";
 import TemplatePicker from "./TemplatePicker/TemplatePicker";
 
 
-
-
-
 function App() {
   const [show, setShow] = useState(false);
   const [image, setImage] = useState(false);
