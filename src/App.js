@@ -5,6 +5,8 @@ import Landing from './Landing/Landing';
 import Modal from './Modal/Modal';
 import Editor from "./Editor/Editor";
 import CameraPreview from "./CameraPreview/CameraPreview";
+import TemplatePicker from "./TemplatePicker/TemplatePicker";
+
 
 
 
@@ -21,9 +23,13 @@ function App() {
         <Editor image={image}/>
         :
         <>
-        <Landing  onImageSelect = {setImage} onOpenModal={ () => {setShow(true)}}/>
+        <Landing  onImageSelect = {setImage} onOpenModal={setShow}/>
         <Modal show={show} >
+          { show === 'camera'?
           <CameraPreview onImageSelect = {setImage}/>
+          :
+          <TemplatePicker onImageSelect = {setImage}/>
+          }
         </Modal>
         </>
         }

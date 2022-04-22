@@ -14,7 +14,7 @@ const Editor = (props) => {
             <input type="text" name="bottomText" placeholder="Bottom text" onChange={(event) => {setBottomText(event.target.value)}}/>
             <Canvas image={props.image} topText={topText} bottomText={bottomText} onCanvasUpdate={setCanvasElement}/>
             {canvasElement ? 
-            <a href={canvasElement.toDataURL()} download="meme.jpg">Download!</a> :
+            <a href={canvasElement.toDataURL()} download={`${topText||'meme'}.jpg`}>Download!</a> :
             null
             }
 

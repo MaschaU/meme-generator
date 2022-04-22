@@ -13,7 +13,9 @@ const Landing = (props) => {
     return (
       <div>
         <input type="file" onChange={handleUpload}/>
-        <button onClick={ props.onOpenModal }> Show modal</button>
+        <button onClick={() => {props.onOpenModal('camera') } }> Take a photo</button>
+        <button onClick={() => {props.onOpenModal('picker') } }> Show templates</button>
+
 
       </div>
     )
